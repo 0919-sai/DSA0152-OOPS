@@ -1,0 +1,26 @@
+#include <iostream>
+
+int main() {
+    int arr[10] = {12, 13, 1, 10, 34, 16, 17, 18, 19};
+    int size = 9;
+
+    int max = arr[0];
+    int secondMax = INT_MIN;
+
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+        } else if (arr[i] > secondMax && arr[i] != max) {
+            secondMax = arr[i];
+        }
+    }
+
+    if (secondMax == INT_MIN) {
+        std::cout << "There is no second largest element in the array." << std::endl;
+    } else {
+        std::cout << "Second largest element in the array: " << secondMax << std::endl;
+    }
+
+    return 0;
+}
