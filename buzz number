@@ -1,0 +1,23 @@
+#include <iostream>
+
+bool isBuzz(int num) {
+    if (num % 10 == 7 || num % 7 == 0) {
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    int num;
+
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    if (isBuzz(num)) {
+        std::cout << num << " is a Buzz number." << std::endl;
+    } else {
+        std::cout << num << " is not a Buzz number." << std::endl;
+    }
+
+    return 0;
+}
