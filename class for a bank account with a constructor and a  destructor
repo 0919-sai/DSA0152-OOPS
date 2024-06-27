@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+
+class BankAccount {
+private:
+    std::string accountHolder;
+    double balance;
+
+public:
+ 
+    BankAccount(std::string name, double initialBalance) {
+        accountHolder = name;
+        balance = initialBalance;
+        std::cout << "Account created for " << accountHolder << " with initial balance of $" << balance << std::endl;
+    }
+
+ 
+    ~BankAccount() {
+        std::cout << "Account for " << accountHolder << " closed." << std::endl;
+    }
+
+ 
+    void deposit(double amount) {
+        balance += amount;
+        std::cout << "Deposited $" << amount << " into account. New balance: $" << balance << std::endl;
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            std::cout << "Withdrew $" << amount << " from account. New balance: $" << balance << std::endl;
+        } else {
+            std::cout << "Insufficient funds." << std::endl;
+        }
+    }
+
+    void displayBalance() {
+        std::cout << "Account balance: $" << balance << std::endl;
+    }
+};
+
+int main() {
+    BankAccount account1("John Doe", 1000.0);
+    account1.displayBalance();
+    account1.deposit(500.0);
+    account1.withdraw(200.0);
+    account1.displayBalance();
+
+ 
+    return 0;
+}
