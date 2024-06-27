@@ -1,0 +1,47 @@
+#include <iostream>
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+ 
+    Rectangle(double l, double w) {
+        length = l;
+        width = w;
+        std::cout << "Rectangle created with length " << length << " and width " << width << std::endl;
+    }
+
+ 
+    ~Rectangle() {
+        std::cout << "Rectangle destroyed with length " << length << " and width " << width << std::endl;
+    }
+
+ 
+    double area() {
+        return length * width;
+    }
+
+    double perimeter() {
+        return 2 * (length + width);
+    }
+
+    void displayInfo() {
+        std::cout << "Length: " << length << std::endl;
+        std::cout << "Width: " << width << std::endl;
+        std::cout << "Area: " << area() << std::endl;
+        std::cout << "Perimeter: " << perimeter() << std::endl;
+    }
+};
+
+int main() {
+    Rectangle rect1(5.0, 3.0);
+    rect1.displayInfo();
+
+    Rectangle rect2(10.0, 4.0);
+    rect2.displayInfo();
+
+ 
+    return 0;
+}
