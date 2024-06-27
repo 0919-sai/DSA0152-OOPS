@@ -1,0 +1,34 @@
+#include <iostream>
+
+int findMin(int arr[], int size) {
+    int min = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int findMax(int arr[], int size) {
+    int max = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {4, 2, 7, 1, 3, 9, 6, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int minElement = findMin(arr, size);
+    int maxElement = findMax(arr, size);
+
+    std::cout << "Minimum element: " << minElement << std::endl;
+    std::cout << "Maximum element: " << maxElement << std::endl;
+
+    return 0;
+}
