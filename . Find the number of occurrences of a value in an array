@@ -1,0 +1,14 @@
+#include <algorithm>
+#include <iostream>
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 2, 2, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int value = 2;
+
+    int count = std::count(arr, arr + size, value);
+
+    std::cout << "Number of occurrences of " << value << ": " << count << std::endl;
+
+    return 0;
+}
