@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+
+class Book {
+private:
+    std::string title;
+    std::string author;
+    int pages;
+    bool isAvailable;
+
+public:
+ 
+    Book(std::string t, std::string a, int p) {
+        title = t;
+        author = a;
+        pages = p;
+        isAvailable = true;
+        std::cout << "Book created: " << title << " by " << author << std::endl;
+    }
+
+ 
+    ~Book() {
+        std::cout << "Book destroyed: " << title << " by " << author << std::endl;
+    }
+
+    // Member functions
+    void borrowBook() {
+        if (isAvailable) {
+            isAvailable = false;
+            std::cout << "You have borrowed " << title << " by " << author << std::endl;
+        } else {
+            std::cout << "Sorry, " << title << " by " << author << " is currently not available." << std::endl;
+        }
+    }
+
+    void returnBook() {
+        if (!isAvailable) {
+            isAvailable = true;
+            std::cout << "You have returned " << title << " by " << author << std::endl;
+        } else {
+            std::cout << "You didn't borrow " << title << " by " << author << std::endl;
+        }
+    }
+
+    void displayInfo() {
+        std::cout << "Title: " << title << std::endl;
+        std::cout << "Author: " << author << std::endl;
+        std::cout << "Pages: " << pages << std::endl;
+        std::cout << "Availability: " << (isAvailable ? "Available" : "Not Available") << std::endl;
+    }
+};
+
+int main() {
+    Book book1("To Kill a Mockingbird", "Harper Lee", 281);
+    book1.displayInfo();
+    book1.borrowBook();
+    book1.borrowBook();
+    book1.returnBook();
+    book1.displayInfo();
+
+    Book book2("1984", "George Orwell", 328);
+    book2.displayInfo();
+    book2.borrowBook();
+    book2.displayInfo();
+
+ 
+    return 0;
+}
