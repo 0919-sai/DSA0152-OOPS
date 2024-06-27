@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+class Student {
+private:
+    std::string name;
+    int rollNumber;
+
+public:
+ 
+    Student(std::string n, int r) {
+        name = n;
+        rollNumber = r;
+        std::cout << "Student object created: " << name << " with roll number " << rollNumber << std::endl;
+    }
+
+ 
+    ~Student() {
+        std::cout << "Student object destroyed: " << name << " with roll number " << rollNumber << std::endl;
+    }
+
+ 
+    void displayInfo() {
+        std::cout << "Name: " << name << ", Roll Number: " << rollNumber << std::endl;
+    }
+};
+
+int main() {
+    Student student1("John Doe", 123);
+    student1.displayInfo();
+
+    Student student2("Jane Doe", 456);
+    student2.displayInfo();
+
+    return 0;
+}
