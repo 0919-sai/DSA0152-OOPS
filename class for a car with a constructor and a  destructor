@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+class Car {
+private:
+    std::string make;
+    std::string model;
+    int year;
+    int mileage;
+
+public:
+    
+    Car(std::string m, std::string mo, int y, int mi) {
+        make = m;
+        model = mo;
+        year = y;
+        mileage = mi;
+        std::cout << "Car created: " << make << " " << model << " " << year << " with " << mileage << " miles." << std::endl;
+    }
+
+    
+    ~Car() {
+        std::cout << "Car destroyed: " << make << " " << model << " " << year << " with " << mileage << " miles." << std::endl;
+    }
+
+    
+    void drive(int miles) {
+        mileage += miles;
+        std::cout << "Drove " << miles << " miles. New mileage: " << mileage << " miles." << std::endl;
+    }
+
+    void displayInfo() {
+        std::cout << "Make: " << make << std::endl;
+        std::cout << "Model: " << model << std::endl;
+        std::cout << "Year: " << year << std::endl;
+        std::cout << "Mileage: " << mileage << " miles" << std::endl;
+    }
+};
+
+int main() {
+    Car myCar("Toyota", "Corolla", 2015, 50000);
+    myCar.displayInfo();
+    myCar.drive(100);
+    myCar.displayInfo();
+
+ return 0;
+}
